@@ -1,0 +1,20 @@
+<div id="titleRow">
+    <div class="container">
+        <h1 class="work">
+            <span class="lft"></span><span class="mid">My Account</span><span class="rt"></span>
+        </h1>
+        <div id="name">
+            <% if (locals.error) { %>
+                 <h2>Error <%= error.message %> !</h2>
+            <% } %>            
+            <% if (locals.user) { %>
+                 <h2>Welcome back <%= locals.user.username %> !</h2>
+            <% } %>
+        </div>
+    </div>
+</div>
+
+<div id="request" class="green-row">
+    <div class="container">
+    </div>
+</div>

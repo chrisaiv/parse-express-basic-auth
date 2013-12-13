@@ -1,0 +1,14 @@
+{
+    "applications": {
+        "_default": {
+            "link": "employee-directory"
+        }, 
+        "employee-directory": {
+            "applicationId": "mdgHnrPMrhDgBcx3fZGSx4dXNr2PWg3ymOeDVolE", 
+            "masterKey": "MI5IjEOgd3FBkDljBh7RoOXEnwkDA36MpqCJ6WS8"
+        }
+    }, 
+    "global": {
+        "parseVersion": "1.2.13"
+    }
+}

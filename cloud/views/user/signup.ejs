@@ -1,0 +1,75 @@
+<script type="text/javascript">
+    $(window).load(function () {
+        //Temporarily update the username
+        var username = "chrisaiv" + Math.random(3);
+        //$("input[type='text'][name$='username']").attr('value', username)
+        
+        /***  Footer Back to Top link ***/
+        $('a.toTop').click(function () {
+            $('html, body').animate({scrollTop:'0px'}, 300);
+            return false;
+        });
+
+        /*** validate form ***/
+        $('form.form-search input').blur(function () {
+            var $e = $(this);
+            var error = false;
+            if ($e.val() == '') {
+                error = true;
+            }
+            if ($e.data('type') == 'email') {
+                var reg = /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
+                var email = $e.val().replace('#', '@');
+
+                if (!reg.test(email)) {
+                    error = true;
+                }
+            }
+
+            error ? $e.addClass('error') : $e.removeClass('error');
+
+            return true;
+
+        });
+        
+        $('form.form-search').submit(function (e) {
+            $(this).find('input').trigger('blur');
+            var errors = $(this).find('.error').length;
+            console.log( "errors:", errors );
+            //e.preventDefault();
+            /*** no errors - submit form ***/
+            return errors == 0;
+        });
+    });
+</script>
+<div id="titleRow">
+    <div class="container">
+        <h1 class="work">
+            <span class="lft"></span><span class="mid">Contact us</span><span class="rt"></span>
+        </h1>
+    </div>
+</div>
+
+<div id="request" class="green-row">
+    <div class="container">
+        <h2>
+            <span class="lft"></span><span class="mid">Request a quote</span><span class="rt"></span>
+        </h2>
+
+        <form class="form-search" method="post" accept-charset="utf-8">
+            <div class="row">
+                <div class="span4">
+                    <input type="text" class="search-query" name="fname"    placeholder="Last Name" value="chris">
+                    <input type="text" class="search-query" name="lname"    placeholder="First Name" value="aiv">
+                    <input type="text" class="search-query" name="username" placeholder="Username">
+                    <input type="text" class="search-query" name="email"    data-type="email" placeholder="Email">
+                    <input type="password" class="search-query" name="password" placeholder="Password" value="p@ssword">
+                    <input type="text" class="search-query" name="phone"    placeholder="Phone" value="555-555-5555">
+
+                    <button type="submit" class="btn red-btn pull-right">Register</button>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
